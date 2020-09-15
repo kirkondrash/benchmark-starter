@@ -11,5 +11,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Component
-public @interface Benchmark {
+public @interface RestBenchmark {
 }

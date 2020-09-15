@@ -14,13 +14,14 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class MethodMetric {
+public class RestMetric {
     @Id
     @GeneratedValue
     private Long id;
 
-    private String methodName;
+    private String endpointName;
     private boolean successful;
+    private int code;
     private long duration;
     private String exceptionName;
     private String args;

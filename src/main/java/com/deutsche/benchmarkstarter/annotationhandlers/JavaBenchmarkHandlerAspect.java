@@ -13,26 +13,26 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Aspect
-public class BenchmarkHandlerAspect {
+public class JavaBenchmarkHandlerAspect {
 
     private final MethodMetricService methodMetricService;
 
     @Autowired
-    public BenchmarkHandlerAspect(MethodMetricService methodMetricService) {
+    public JavaBenchmarkHandlerAspect(MethodMetricService methodMetricService) {
         this.methodMetricService = methodMetricService;
     }
 
-    @Pointcut("@annotation(com.deutsche.benchmarkstarter.annotations.Benchmark))")
+    @Pointcut("@annotation(com.deutsche.benchmarkstarter.annotations.JavaBenchmark)")
     public void benchmarkedMethods(){}
 
-    @Pointcut("@within(com.deutsche.benchmarkstarter.annotations.Benchmark))")
+    @Pointcut("@within(com.deutsche.benchmarkstarter.annotations.JavaBenchmark)")
     public void benchmarkedClasses(){}
 
     @Around("benchmarkedMethods() || benchmarkedClasses()")
     public Object benchMarkMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodMetric.MethodMetricBuilder methodMetricBuilder = MethodMetric
                 .builder()
-                .name(proceedingJoinPoint.getSignature().toLongString());
+                .methodName(proceedingJoinPoint.getSignature().toLongString());
         try {
             long startTime = System.currentTimeMillis();
             Object result = proceedingJoinPoint.proceed();
