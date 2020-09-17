@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Retention(RUNTIME)
-@Target({ElementType.TYPE})
+@Target({ElementType.METHOD})
 @Component
-public @interface RestBenchmark {
+public @interface AlarmTreshold {
+    long value() default 10;
 }
