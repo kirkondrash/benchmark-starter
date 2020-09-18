@@ -1,0 +1,12 @@
+POST localhost:8080/java_metrics_repo
+Content-Type: application/json
+
+{
+  "methodName": "hello there"
+}
+
+###
+
+POST localhost:8080/alarm/1
+
+HelloThereGeneralKenobi
