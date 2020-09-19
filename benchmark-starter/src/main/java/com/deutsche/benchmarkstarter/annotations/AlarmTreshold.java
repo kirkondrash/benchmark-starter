@@ -10,7 +10,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Retention(RUNTIME)
 @Target({ElementType.METHOD})
-@Component
 public @interface AlarmTreshold {
     long value() default 10;
 }
